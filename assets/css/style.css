@@ -63,7 +63,6 @@ img {
 /* IMAGE ZOOM */
 .image-zoom {
     position: relative;
-    /* overflow: hidden; */
 }
 
 .image-zoom-wrapper {
@@ -208,9 +207,6 @@ img {
     opacity: 0;
 }
 
-
-
-/* Estilo geral para as outras imagens */
 .image-zoom-wrapper img {
     max-width: auto;
     height: 400px;
