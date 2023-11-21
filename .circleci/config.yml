@@ -12,7 +12,7 @@ jobs:
       - run:
           name: Pack Files
           command: |
-            tar -cvzf website.tar.gz .
+            tar -cvzf website.tar.gz ./src
 
       # Send the tarball to the VPS
       - deploy:
