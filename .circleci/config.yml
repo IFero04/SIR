@@ -21,3 +21,13 @@ jobs:
           name: Deploy to Server
           command: |
             scp -o StrictHostKeyChecking=no site.tgz $REMOTE_USER@$REMOTE_SERVER:/tmp/site.tgz
+
+workflows:
+  version: 2
+  build-and-deploy:
+    jobs:
+      - pack:
+          filters:
+            branches:
+              only:
+                - master  
