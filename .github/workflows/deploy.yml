@@ -10,6 +10,7 @@ jobs:
 
       - name: Debug SSH Key
         run: |
+          echo "Username: ${{ secrets.USERNAME }}"
           echo "SSH Key: ${{ secrets.SSHKEY }}"
 
       - name: Copy repository contents via scp
