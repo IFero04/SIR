@@ -8,19 +8,17 @@ jobs:
     steps:
       - checkout
 
-      # Build and pack the application
+      # Pack the files into a tarball
       - run:
-          name: Build and Pack
+          name: Pack Files
           command: |
-            npm install
-            npm run build
-            tar -zcvf site.tgz build
+            tar -cvzf website.tar.gz .
 
-      # Send the zip file to the server
+      # Send the tarball to the VPS
       - deploy:
-          name: Deploy to Server
+          name: Deploy to VPS
           command: |
-            scp -o StrictHostKeyChecking=no site.tgz $REMOTE_USER@$REMOTE_SERVER:/tmp/site.tgz
+            scp -o StrictHostKeyChecking=no website.tar.gz $REMOTE_USER@$REMOTE_SERVER:/tmp/website.tar.gz
 
 workflows:
   version: 2
@@ -30,4 +28,4 @@ workflows:
           filters:
             branches:
               only:
-                - master  
+                - master  # Replace with your main branch name if different
