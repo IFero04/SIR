@@ -18,7 +18,7 @@ jobs:
       - deploy:
           name: Deploy to VPS
           command: |
-            scp -o StrictHostKeyChecking=no website.tar.gz $REMOTE_USER@$REMOTE_SERVER:/tmp/website.tar.gz
+            scp -o StrictHostKeyChecking=no website.tar.gz root@62.171.158.182:/tmp/website.tar.gz
 
 workflows:
   version: 2
@@ -28,4 +28,12 @@ workflows:
           filters:
             branches:
               only:
-                - master  # Replace with your main branch name if different
+                - master  
+      
+      - deploy:
+          requires:
+            - pack
+          filters:
+            branches:
+              only:
+                - master 
